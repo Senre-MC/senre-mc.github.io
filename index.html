@@ -3,7 +3,17 @@
   <head>
     <title>Welcome to Senre's Github page</title>
   </head>
-  <body>
-    Welcome to Senre's Github page. Nothing interesting is here at the moment.
+  <body style="margin:0px;overflow:hidden;">
+    <canvas id="page" style="width:100vw;height:100vh;">
+      Oh dear, your web browser is quite low quality...
+    </canvas>
+    <script>
+      var can = document.getElementById("page");
+      var ctx = can.getContext("2d");
+      ctx.fillStyle="red";
+      ctx.fillRect(0, 0, can.width, can.height);
+      ctx.fillStyle="black";
+      ctx.fillText("Welcome to Senre's Github page. Nothing interesting is here at the moment.", 10, 10);
+    </script>
   </body>
 </html>
