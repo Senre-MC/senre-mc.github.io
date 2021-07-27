@@ -9,11 +9,16 @@
     </canvas>
     <script>
       var can = document.getElementById("page");
+      can.width = can.clientWidth;
+      can.height = can.clientHeight;
       var ctx = can.getContext("2d");
-      ctx.fillStyle="red";
-      ctx.fillRect(0, 0, can.width, can.height);
-      ctx.fillStyle="black";
-      ctx.fillText("Welcome to Senre's Github page. Nothing interesting is here at the moment.", 10, 10);
+      can.repaint = function() {
+        ctx.fillStyle="red";
+        ctx.fillRect(0, 0, can.width, can.height);
+        ctx.fillStyle="black";
+        ctx.fillText("Welcome to Senre's Github page. Nothing interesting is here at the moment.", 10, 10);
+      };
+      can.repaint();
     </script>
   </body>
 </html>
