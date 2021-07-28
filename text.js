@@ -11,6 +11,6 @@ var text = [
   },
   {
     type: Types.TEXTS, y:64, x:16, font: "20px",
-    text: "Nothing interesting is here at the moment."
+    text: "Nothing interesting is here at the moment.\nThis is the only thing."
   },
 ];

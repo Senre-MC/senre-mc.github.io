@@ -1,6 +1,7 @@
 var img_small;
 var img_large;
 var prep = 0;
+var zoom = 0;
 
 var drawSText = function(text, x, y) {
   var ax = 0, ay = 0, sx = 0, sy = 0;
@@ -15,7 +16,7 @@ var drawSText = function(text, x, y) {
       sx <<= 4;
       sy <<= 4;
       if(text.charAt(i) !== ' ') {
-        this.drawImage(img_small, sx, sy, 16, 16, x + (ax << 4), y + (ay << 4), 16, 16);
+        this.drawImage(img_small, sx, sy, 16, 16, x + (ax << 4 >> zoom), y + (ay << 4 >> zoom), 16 >> zoom, 16 >> zoom);
       }
       ax++;
     }
@@ -35,7 +36,7 @@ var drawBText = function(text, x, y) {
       sx <<= 4;
       sy <<= 5;
       if(text.charAt(i) !== ' ') {
-        this.drawImage(img_large, sx, sy, 16, 32, x + (ax << 4), y + (ay << 5), 16, 32);
+        this.drawImage(img_large, sx, sy, 16, 32, x + (ax << 4 >> zoom), y + (ay << 5 >> zoom), 16 >> zoom, 32 >> zoom);
       }
       ax++;
     }
