@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Senre's Github page</title>
   </head>
   <body style="margin:0px;overflow:hidden;">
@@ -21,27 +22,40 @@
       can.repaint = function() {
         ctx.textBaseline = "top";
         ctx.fillStyle="gray";
-        ctx.fillRect(0, 50, can.width, can.height-50);
+        ctx.fillRect(0, 48, can.width, can.height-48);
         for(var i=0;i<text.length;i++) {
           if(text[i].y > scroll - 50) {
             if(text[i].y < (scroll + can.height)) {
               switch(text[i].type) {
               case Types.TEXTS:
-                ctx.drawSFont(text[i].text, 10, 50+text[i].y-scroll);
+                ctx.drawSFont(text[i].text, text[i].x >> zoom, 48+(text[i].y >> zoom)-scroll);
                 break;
               case Types.TEXTB:
-                ctx.drawBFont(text[i].text, 10, 50+text[i].y-scroll);
+                ctx.drawBFont(text[i].text, text[i].x >> zoom, 48+(text[i].y >> zoom)-scroll);
                 break;
               }
             }
           }
         }
         ctx.fillStyle="#222";
-        ctx.fillRect(0, 0, can.width, 50);
+        ctx.fillRect(0, 0, can.width, 48);
+        ctx.globalAlpha = 0.4;
+        ctx.drawBFont("Senre-MC", can.width / 2 - 64, 8);
+        ctx.drawSFont("+", can.width - 16, 4);
+        ctx.drawSFont("-", can.width - 16, 28);
+        ctx.globalAlpha = 1;
       };
-      
+      can.onclick = function(e) {
+        if(e.clientX > can.width - 16) {
+          if(e.clientY < 48) {
+            zoom = e.clientY > 24 ? 1 : 0;
+          }
+        }
+        console.log(e.clientX+","+e.clientY);
+        can.repaint();
+      }
       can.onwheel = function(e) {
-        if(e.deltaY > 0) {scroll+=10;} else {scroll-=10;}
+        if(e.deltaY > 0) {scroll+=16;} else {scroll-=16;}
         can.repaint();
       }
       document.body.onresize = function() {
