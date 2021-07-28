@@ -7,18 +7,48 @@
     <canvas id="page" style="width:100vw;height:100vh;">
       Oh dear, your web browser is quite low quality...
     </canvas>
+    <script rel="text/javascript" src="graphics.js"></script>
+    <script rel="text/javascript" src="text.js"></script>
     <script>
       var can = document.getElementById("page");
+      var scroll = 0;
       can.width = can.clientWidth;
       can.height = can.clientHeight;
       var ctx = can.getContext("2d");
+      initializeAll(ctx, function() {
+        can.repaint();
+      });
       can.repaint = function() {
-        ctx.fillStyle="red";
-        ctx.fillRect(0, 0, can.width, can.height);
-        ctx.fillStyle="black";
-        ctx.fillText("Welcome to Senre's Github page. Nothing interesting is here at the moment.", 10, 10);
+        ctx.textBaseline = "top";
+        ctx.fillStyle="gray";
+        ctx.fillRect(0, 50, can.width, can.height-50);
+        for(var i=0;i<text.length;i++) {
+          if(text[i].y > scroll - 50) {
+            if(text[i].y < (scroll + can.height)) {
+              switch(text[i].type) {
+              case Types.TEXTS:
+                ctx.drawSFont(text[i].text, 10, 50+text[i].y-scroll);
+                break;
+              case Types.TEXTB:
+                ctx.drawBFont(text[i].text, 10, 50+text[i].y-scroll);
+                break;
+              }
+            }
+          }
+        }
+        ctx.fillStyle="#222";
+        ctx.fillRect(0, 0, can.width, 50);
       };
-      can.repaint();
+      
+      can.onwheel = function(e) {
+        if(e.deltaY > 0) {scroll+=10;} else {scroll-=10;}
+        can.repaint();
+      }
+      document.body.onresize = function() {
+      	can.width = can.clientWidth;
+      	can.height = can.clientHeight;
+        can.repaint();
+      };
     </script>
   </body>
 </html>
