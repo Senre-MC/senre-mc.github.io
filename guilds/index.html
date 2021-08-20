@@ -3,26 +3,33 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Senre's Github page</title>
+    <link rel="stylesheet" href="/template.css">
   </head>
   <body style="margin:0px;overflow-x:hidden;">
-    <div style="padding-left:4vw;width:100vw;height:48px;background:url('/banner-bg.png') repeat;">
-      <a href="/"><img src="/sample-logo.png" style="height:48px;" /></a>
-      <a href="/guilds/"><img src="/guilds-bg.png" style="height:48px;" /></a>
-      <a href="/demos/"><img src="/demo-bg.png" style="height:48px;" /></a>
+    <div class="banner">
+      <a href="/"><img src="/sample-logo.png" class="label" /></a>
+      <a href="/guilds/"><img src="/guilds-bg.png" class="label" /></a>
+      <a href="/demos/"><img src="/demo-bg.png" class="label" /></a>
     </div>
     <div style="height:1em;"></div>
     <marquee>Welcome to Guilds Documentation</marquee>
-    <table style="width:100vw;vertical-align:top;">
+    <table style="width:100vw;">
       <tr id="mid">
-        <td id="fluc2" colspan="2"><canvas id="tips" style="width:100%;height:32px;"></canvas></td>
+        <td id="fluc2" colspan="2"><canvas id="tips" class="label"></canvas></td>
       </tr>
       <tr id="documentation">
-        <td style="background:#AAD">
+        <td style="background:#BBE;vertical-align:top;">
           <h1>Entities</h1>
           <p>View all of the different types of entities in the plugin</p>
-          <a href="entities.html">Goto</a>
+          <table style="min-width:90%;">
+          <tr><td style="border-bottom:1px solid;"><a href="./entities/nation.html">Nation</a></td></tr>
+          <tr><td style="border-bottom:1px solid;"><a href="./entities/state.html">State</a></td></tr>
+          <tr><td style="border-bottom:1px solid;"><a href="./entities/town.html">Town</a></td></tr>
+          <tr><td style="border-bottom:1px solid;"><a href="./entities/chunk.html">Chunk</a></td></tr>
+          <tr><td style="border-bottom:1px solid;"><a href="./entities/nation.html">Town</a></td></tr>
+          </table>
         </td>
-        <td style="background:#A8D">
+        <td style="background:#DEB;vertical-align:top;">
           <h1>Commands</h1>
           <p>View all of the different commands in better detail</p>
           <a href="commands.html">Goto</a>
@@ -32,22 +39,13 @@
         <td colspan="3" style="background:#AAA;">Placeholder</td>
       </tr>
     </table>
-    <script src="graphics.js"></script>
     <script>
       var tips = document.getElementById("tips");
       tips.ctx = tips.getContext("2d");
       function PCvMobile() {
         drawTipsCanvas();
         if(document.body.clientWidth < 600) {
-          document.getElementById("top2").appendChild(document.getElementById("fluc1"));
-          if(document.getElementById("top").contains(document.getElementById("fluc1"))) {
-            document.getElementById("top").removeChild(document.getElementById("fluc1"));
-          }
         } else {
-          document.getElementById("top").appendChild(document.getElementById("fluc1"));
-          if(document.getElementById("top2").contains(document.getElementById("fluc1"))) {
-            document.getElementById("top2").removeChild(document.getElementById("fluc1"));
-          }
         }
       }
 
