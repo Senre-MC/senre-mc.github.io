@@ -1,10 +1,71 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Welcome to Senre's Github page</title>
   </head>
-  <body>
-    <h1>404 Error</h1>
-    <hr />
-    <p>The page you looked for does not exist.</p>
+  <body style="margin:0px;overflow-x:hidden;">
+    <div style="padding-left:4vw;width:100vw;height:48px;background:url('/banner-bg.png') repeat;">
+      <img src="/sample-logo.png" style="height:48px;" />
+      <a href="./guilds/"><img src="/guilds-bg.png" style="height:48px;" /></a>
+      <a href="./demos/"><img src="/demo-bg.png" style="height:48px;" /></a>
+    </div>
+    <div style="height:5em;"></div>
+    <div style="text-align:center;">
+      <h1>誤404 Error差</h1>
+      <h4>If this came from a link, I have still yet to populate the page.</h4>
+      <a href="https://github.com/Senre-MC/senre-mc.github.io/issues"><h5>But you are free to report this as an issue!</h5></a>
+    </div>
+    <div style="height:5em;"></div>
+    <table style="width:100vw;vertical-align:top;">
+      <tr id="footer">
+        <td colspan="3" style="background:#AAA;">
+          <img src="/g1.gif" style="display:inline-block" />
+          <img src="/g2.gif" style="display:inline-block" />
+          <img src="/g3.gif" style="display:inline-block" />
+          <img src="/g4.gif" style="display:inline-block" />
+          <img src="/g5.gif" style="display:inline-block" />
+        </td>
+      </tr>
+    </table>
+    <script src="graphics.js"></script>
+    <script>
+      var tips = document.getElementById("tips");
+      tips.ctx = tips.getContext("2d");
+      function PCvMobile() {
+        drawTipsCanvas();
+        if(document.body.clientWidth < 600) {
+          document.getElementById("top2").appendChild(document.getElementById("fluc1"));
+          if(document.getElementById("top").contains(document.getElementById("fluc1"))) {
+            document.getElementById("top").removeChild(document.getElementById("fluc1"));
+          }
+        } else {
+          document.getElementById("top").appendChild(document.getElementById("fluc1"));
+          if(document.getElementById("top2").contains(document.getElementById("fluc1"))) {
+            document.getElementById("top2").removeChild(document.getElementById("fluc1"));
+          }
+        }
+      }
+
+      function drawTipsCanvas() {
+        tips.width = tips.clientWidth;
+        tips.height = tips.clientHeight;
+        tips.ctx.fillStyle="#e93";
+        tips.ctx.fillRect(0, 0, tips.width, tips.height);
+        tips.ctx.fillStyle="#fa4";
+        tips.ctx.fillRect(0, 0, 80, tips.height);
+        tips.ctx.strokeRect(0.5, 0.5, 79, tips.height-1);
+        tips.ctx.fillRect(80, 0, tips.width-80, 2);
+        tips.ctx.fillRect(80, tips.height-2, tips.width-80, 2);
+      }
+
+      document.body.onresize = function() {
+        PCvMobile();
+      }
+
+      PCvMobile();
+    </script>
   </body>
 </html>
+
