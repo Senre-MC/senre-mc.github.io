@@ -1,6 +1,8 @@
+.pg {margin:0px;overflow-x:hidden;}
+
 .banner {
   padding-left:4vw;
-  width:100vw;
+  width:96vw;
   height:48px;
   background:url('/banner-bg.png') repeat;
 }
@@ -9,12 +11,10 @@ img.label {
   height:48px;
 }
 
-canvas.label {
-  width:100%;
-  height:32px;
-}
+.footer {background:#AAA;}
+.footer img {display:inline-block;}
 
-.main-page-wgt {
-  background:#EED;
-  min-height:3em;
-}
+canvas.label {width:100%;height:32px;}
+
+.mpwgt-head {height:20px;}
+.mpwgt-body {background:#EED;min-height:3em;}
