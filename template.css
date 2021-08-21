@@ -7,6 +7,9 @@
 }
 /* Other Rules */
 .pg {margin:0px;overflow-x:hidden;}
+.guilds-list {min-width:90%;}
+.guilds-list td {border-bottom:1px solid;}
+.code {font-family:monospace;}
 img.label {height:48px;}
 .footer {background:#AAA;}
 .footer img {display:inline-block;}

@@ -1,77 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Senre's Github page</title>
-    <link rel="stylesheet" href="/template.css">
-  </head>
-  <body class="pg">
-    <div class="banner">
-      <a href="/"><img src="/sample-logo.png" class="label" /></a>
-      <a href="/guilds/"><img src="/guilds-bg.png" class="label" /></a>
-      <a href="/demos/"><img src="/demo-bg.png" class="label" /></a>
-    </div>
-    <div style="height:1em;"></div>
-    <marquee>Welcome to Guilds Documentation</marquee>
-    <table style="width:100vw;">
-      <tr id="mid">
-        <td id="fluc2" colspan="2"><canvas id="tips" class="label"></canvas></td>
-      </tr>
-      <tr id="documentation">
-        <td style="background:#BBE;vertical-align:top;">
-          <h1>Entities</h1>
-          <p>View all of the different types of entities in the plugin</p>
-          <table style="min-width:90%;">
-          <tr><td style="border-bottom:1px solid;"><a href="./entities/nation.html">Nation</a></td></tr>
-          <tr><td style="border-bottom:1px solid;"><a href="./entities/state.html">State</a></td></tr>
-          <tr><td style="border-bottom:1px solid;"><a href="./entities/town.html">Town</a></td></tr>
-          <tr><td style="border-bottom:1px solid;"><a href="./entities/chunk.html">Chunk</a></td></tr>
-          </table>
-        </td>
-        <td style="background:#DEB;vertical-align:top;">
-          <h1>Commands</h1>
-          <p>View all of the different commands in better detail</p>
-          <a href="commands.html">Goto</a>
-        </td>
-      </tr>
-      <tr id="footer">
-        <td colspan="3" class="footer">
-          <img src="/g1.gif" />
-          <img src="/g2.gif" />
-          <img src="/g3.gif" />
-          <img src="/g4.gif" />
-          <img src="/g5.gif" />
-        </td>
-      </tr>
-    </table>
-    <script>
-      var tips = document.getElementById("tips");
-      tips.ctx = tips.getContext("2d");
-      function PCvMobile() {
-        drawTipsCanvas();
-        if(document.body.clientWidth < 600) {
-        } else {
-        }
-      }
+ <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Senre's Github page</title>
+  <link rel="stylesheet" href="/template.css">
+ </head>
+ <body class="pg">
+  <div class="banner">
+   <a href="/"><img src="/sample-logo.png" class="label" /></a>
+   <a href="/guilds/"><img src="/guilds-bg.png" class="label" /></a>
+   <a href="/demos/"><img src="/demo-bg.png" class="label" /></a>
+  </div>
+  <div style="height:1em;"></div>
+  <marquee>Welcome to Guilds Documentation</marquee>
+  <table style="width:100vw;">
+   <tr id="mid">
+    <td id="fluc2" colspan="2"><canvas id="tips" class="label"></canvas></td>
+   </tr>
+   <tr id="documentation">
+    <td style="background:#BBE;vertical-align:top;">
+     <h1>Entities</h1>
+     <p>View all of the different types of entities in the plugin</p>
+     <table class="guilds-list">
+      <tr><td><a href="./entities/nation.html">Nations</a></td></tr>
+      <tr><td><a href="./entities/state.html">States</a></td></tr>
+      <tr><td><a href="./entities/town.html">Towns</a></td></tr>
+      <tr><td><a href="./entities/chunk.html">Chunk Claims</a></td></tr>
+      <tr><td><a href="./entities/chat.html">Chat Channels</a></td></tr>
+     </table>
+    </td>
+    <td style="background:#DEB;vertical-align:top;">
+     <h1>Commands</h1>
+     <p>View all of the different commands in better detail</p>
+     <table class="guilds-list code">
+      <tr><td><a href="./commands/nation.html">/n</a></td></tr>
+      <tr><td><a href="./commands/state.html">/s</a></td></tr>
+      <tr><td><a href="./commands/town.html">/t</a></td></tr>
+      <tr><td><a href="./commands/chunk.html">/chunk</a></td></tr>
+      <tr><td><a href="./commands/character.html">/char</a></td></tr>
+      <tr><td><a href="./commands/admin.html">/ga</a></td></tr>
+      <tr><td><a href="./commands/wars.html">/gw</a></td></tr>
+     </table>
+    </td>
+   </tr>
+   <tr id="footer">
+    <td colspan="3" class="footer">
+     <img src="/g1.gif" />
+     <img src="/g2.gif" />
+     <img src="/g3.gif" />
+     <img src="/g4.gif" />
+     <img src="/g5.gif" />
+    </td>
+   </tr>
+  </table>
+  <script>
+   var tips = document.getElementById("tips");
+   tips.ctx = tips.getContext("2d");
+   function PCvMobile() {
+    drawTipsCanvas();
+    if(document.body.clientWidth < 600) {
+    } else {
+    }
+   }
 
-      function drawTipsCanvas() {
-        tips.width = tips.clientWidth;
-        tips.height = tips.clientHeight;
-        tips.ctx.fillStyle="#e93";
-        tips.ctx.fillRect(0, 0, tips.width, tips.height);
-        tips.ctx.fillStyle="#fa4";
-        tips.ctx.fillRect(0, 0, 80, tips.height);
-        tips.ctx.strokeRect(0.5, 0.5, 79, tips.height-1);
-        tips.ctx.fillRect(80, 0, tips.width-80, 2);
-        tips.ctx.fillRect(80, tips.height-2, tips.width-80, 2);
-      }
+   function drawTipsCanvas() {
+    tips.width = tips.clientWidth;
+    tips.height = tips.clientHeight;
+    tips.ctx.fillStyle="#e93";
+    tips.ctx.fillRect(0, 0, tips.width, tips.height);
+    tips.ctx.fillStyle="#fa4";
+    tips.ctx.fillRect(0, 0, 80, tips.height);
+    tips.ctx.strokeRect(0.5, 0.5, 79, tips.height-1);
+    tips.ctx.fillRect(80, 0, tips.width-80, 2);
+    tips.ctx.fillRect(80, tips.height-2, tips.width-80, 2);
+   }
 
-      document.body.onresize = function() {
-        PCvMobile();
-      }
+   document.body.onresize = function() {
+    PCvMobile();
+   }
 
-      PCvMobile();
-    </script>
-  </body>
+   PCvMobile();
+  </script>
+ </body>
 </html>
 

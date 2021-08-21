@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <meta name="description" content="Nations are the largest unit of claiming as well as the main..." />
-    <title>Welcome to Senre's Github page</title>
-    <link rel="stylesheet" href="/template.css">
-  </head>
-  <body class="pg">
-    <div class="banner">
-      <img src="/sample-logo.png" class="label" />
-      <a href="/guilds/"><img src="/guilds-bg.png" class="label" /></a>
-      <a href="/demos/"><img src="/demo-bg.png" class="label" /></a>
-    </div>
-    <div style="height:1em;"></div>
-    <h1>Nations</h1>
-    <p>Nations are the largest unit of claiming, as well as the main type of claim. They are also the most complex of guilds objects.</p>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-    <div style="height:1em;"></div>
-    <div class="footer">
-      <img src="/g1.gif" />
-      <img src="/g2.gif" />
-      <img src="/g3.gif" />
-      <img src="/g4.gif" />
-      <img src="/g5.gif" />
-    </div>
-    <script src="graphics.js"></script>
-    <script>
-      function PCvMobile() {
-        drawTipsCanvas();
-        if(document.body.clientWidth < 600) {
-          
-        } else {
-          
-        }
-      }
+ <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="description" content="Nations are the largest unit of claiming as well as the main..." />
+  <title>Welcome to Senre's Github page</title>
+  <link rel="stylesheet" href="/template.css">
+ </head>
+ <body class="pg">
+  <div class="banner">
+   <img src="/sample-logo.png" class="label" />
+   <a href="/guilds/"><img src="/guilds-bg.png" class="label" /></a>
+   <a href="/demos/"><img src="/demo-bg.png" class="label" /></a>
+  </div>
+  <div style="height:1em;"></div>
+  <h1>Nations</h1>
+  <p>Nations are the largest unit of claiming, as well as the main type of claim. They are also the most complex of guilds objects.</p>
+  <h2>Table of Contents</h2>
+  <table class="guilds-list">
+   <tr><a href="#mnd"><td>Mandate</td></a></tr>
+   <tr><a href="#hld"><td>Holdings</td></a></tr>
+  </table>
+  <hr />
+  <h2 id="mnd">Mandate</h2>
+  <p>Mandate is a nation's power. It is named this way because while nations are empowered by it, nations are also manda<b>ted</b> to maintain that power. Mandate is gained mainly by activity while mandate is lost mainly by maintenance. Every 72 minecraft days, the long-term mandate gains and losses are tallied.</p>
+  <p>The maintenance cost of a chunk lowers or raises depending on how close a chunk is to the nation's centre of control. States are able to mitigate this cost.</p>
+  <p>The ideal counter-weight to land maintenance is activity. The more active your players (or the more players you have that get on the server every once in a while), the more mandate you will gain.</p>
+  <p>Many aspects of exerting nation power spends mandate, and are most of the time spent immediately. The least expensive of the cost is claiming territory as well as integrating the new territory into a local state or an adjacent city. The most expensive (and potentially most damaging) of the costs are sacking players who have a status in your nation.</p>
+  <hr />
+  <h2 id="hld">Holdings</h2>
+  <p></p>
+  <div style="height:1em;"></div>
+  <div class="footer">
+   <img src="/g1.gif" />
+   <img src="/g2.gif" />
+   <img src="/g3.gif" />
+   <img src="/g4.gif" />
+   <img src="/g5.gif" />
+  </div>
+  <script src="graphics.js"></script>
+  <script>
+   function PCvMobile() {
+    drawTipsCanvas();
+    if(document.body.clientWidth < 600) {
+     
+    } else {
+     
+    }
+   }
 
-      document.body.onresize = function() {
-        PCvMobile();
-      }
+   document.body.onresize = function() {
+    PCvMobile();
+   }
 
-      PCvMobile();
-    </script>
-  </body>
+   PCvMobile();
+  </script>
+ </body>
 </html>
 
