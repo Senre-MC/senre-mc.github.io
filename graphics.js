@@ -45,13 +45,13 @@ var drawBText = function(text, x, y) {
 
 var initializeAll = function(ctx, run) {
   img_small = new Image();
-  img_small.src = "small.png";
+  img_small.src = "/font/small.png";
   img_small.onload = function() {
     prep++;
     if(prep === 2) {run();}
   }
   img_large = new Image();
-  img_large.src = "large.png";
+  img_large.src = "/font/large.png";
   img_large.onload = function() {
     prep++;
     if(prep === 2) {run();}
