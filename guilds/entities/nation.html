@@ -18,8 +18,10 @@
   <p>Nations are the largest unit of claiming, as well as the main type of claim. They are also the most complex of guilds objects.</p>
   <h2>Table of Contents</h2>
   <table class="guilds-list">
-   <tr><a href="#mnd"><td>Mandate</td></a></tr>
-   <tr><a href="#hld"><td>Holdings</td></a></tr>
+   <tr><td><a href="#mnd">Mandate</a></td></tr>
+   <tr><td><a href="#hld">Holdings</a></td></tr>
+   <tr><td><a href="#rec">Recruiting</a></td></tr>
+   <tr><td><a href="#rnk">Ranks</a></td></tr>
   </table>
   <hr />
   <h2 id="mnd">Mandate</h2>
@@ -29,7 +31,15 @@
   <p>Many aspects of exerting nation power spends mandate, and are most of the time spent immediately. The least expensive of the cost is claiming territory as well as integrating the new territory into a local state or an adjacent city. The most expensive (and potentially most damaging) of the costs are sacking players who have a status in your nation.</p>
   <hr />
   <h2 id="hld">Holdings</h2>
-  <p></p>
+  <p>A nation needs holdings in order to organize its territory, make it maintainable, and localize everything.</p>
+  <p><a href="state.html">States</a> are used in order to delegate pieces of territory to a local leader. You are only able to grant states to ranked players. Whenever you use a state instead of your direct territory, the maintenance of that territory is lowered. A state is able to govern itself under a smaller government that works differently from nations. For this reason, it is possible (<a href="https://github.com/Senre-MC/senre-mc.github.io/issues">but not yet implemented</a>) for a state to be made independent.</p>
+  <p><a href="town.html">Towns</a> are used whenever builds are made. Because there's a build capacity, it's best to make big cities in places with more players in it, and rural outposts in places with few people in it.</p>
+  <hr />
+  <h2 id="rec">Recruiting</h2>
+  <p>The nation is the only entity that can invite players, <b>and</b> get applications from players. To invite a player, you need to add them to your nation. To accept an application from a player, you also need to add them to your nation.</p>
+  <hr />
+  <h2 id="rnk">Ranks</h2>
+  <p>Whenever you have someone who is doing a good job, it is best to rank them <a href="/ranks.txt">[See ranks here]</a>. It may be important to have both a successor and a regent in your nation for in event you wish to stop ruling, or in event you need to stop ruling for a certain period of time.</p>
   <div style="height:1em;"></div>
   <div class="footer">
    <img src="/g1.gif" />
@@ -38,23 +48,6 @@
    <img src="/g4.gif" />
    <img src="/g5.gif" />
   </div>
-  <script src="graphics.js"></script>
-  <script>
-   function PCvMobile() {
-    drawTipsCanvas();
-    if(document.body.clientWidth < 600) {
-     
-    } else {
-     
-    }
-   }
-
-   document.body.onresize = function() {
-    PCvMobile();
-   }
-
-   PCvMobile();
-  </script>
  </body>
 </html>
 

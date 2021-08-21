@@ -1,0 +1,22 @@
+LEADER - (Always existed)
+  They lead the entity. This cannot be granted to people
+
+ADVISOR - (Always existed)
+  Has access to private chunks. The usefulness of this rank is only backed by player-run activity. In other words, if they are not people who de facto advise the leader, give them a more appropriate rank.
+
+GENERAL - (Always existed)
+  Has access to private chunks. The usefulness of this rank is only backed by player-run activity. They should be granted this only if they are going to lead the military in event of a conflict.
+
+SUCCESSOR - (Always existed)
+  Has access to private chunks. Will become leader in event the leader abdicates. Note: Disbanding a nation makes all of its states independent. It does not turn a nation into unclaimed free space.
+
+OFFICIAL - (Always existed)
+  Has access to private chunks. Appoint this to people who do a good job. This rank is the most ideal rank to give to players you want to grant lordship to, but it is equally ideal to give to anyone you consider a court member.
+
+REGENT - (Added in 1.0.0)
+  They can become acting leader in event the leader needs to leave temporarily.
+
+ABSENT - (Added in 1.0.0)
+  They lead the entity, but they are off duty. The regent is taking charge for now.
+
+
