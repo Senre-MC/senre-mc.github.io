@@ -58,30 +58,39 @@
      <img src="/g5.gif" />
     </td>
    </tr>
-   <tr>
-    <td colspan="1" style="border-bottom:1px solid black;">
+   <tr id="btm">
+    <td style="border-bottom:1px solid black;">
      @Kalpo#8615
     </td>
-    <td colspan="2" style="border-bottom:1px solid black;">
+    <td id="fluc2" style="border-bottom:1px solid black;">
      <a href="https://discord.gg/YUKeeSVmrH">Guilds Discord</a>
     </td>
+   </tr>
+   <tr id="btm2">
    </tr>
   </table>
   <script src="graphics.js"></script>
   <script>
-   var tips = document.getElementById("tips");
+   function el(s) {return document.getElementById(s);}
+
+   var tips = el("tips");
    tips.ctx = tips.getContext("2d");
+
    function PCvMobile() {
     drawTipsCanvas();
     if(document.body.clientWidth < 600) {
-     document.getElementById("top2").appendChild(document.getElementById("fluc1"));
-     if(document.getElementById("top").contains(document.getElementById("fluc1"))) {
-      document.getElementById("top").removeChild(document.getElementById("fluc1"));
+     el("top2").appendChild(el("fluc1"));
+     el("btm2").appendChild(el("fluc2"));
+     if(el("top").contains(el("fluc1"))) {
+      el("top").removeChild(el("fluc1"));
+     el("btm").removeChild(el("fluc2"));
      }
     } else {
-     document.getElementById("top").appendChild(document.getElementById("fluc1"));
-     if(document.getElementById("top2").contains(document.getElementById("fluc1"))) {
-      document.getElementById("top2").removeChild(document.getElementById("fluc1"));
+     el("top").appendChild(el("fluc1"));
+     el("btm").appendChild(el("fluc2"));
+     if(el("top2").contains(el("fluc1"))) {
+      el("top2").removeChild(el("fluc1"));
+     el("btm2").removeChild(el("fluc2"));
      }
     }
    }

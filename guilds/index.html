@@ -17,7 +17,7 @@
    <tr id="mid">
     <td id="fluc2" colspan="2"><canvas id="tips" class="label"></canvas></td>
    </tr>
-   <tr id="documentation">
+   <tr id="doc">
     <td style="background:#BBE;vertical-align:top;">
      <h1>Entities</h1>
      <p>View all of the different types of entities in the plugin</p>
@@ -30,7 +30,7 @@
       <tr><td><a href="./entities/war.html">War Signatures</a></td></tr>
      </table>
     </td>
-    <td style="background:#DEB;vertical-align:top;">
+    <td id="flc" style="background:#DEB;vertical-align:top;">
      <h1>Commands</h1>
      <p>View all of the different commands in better detail</p>
      <table class="guilds-list code">
@@ -44,6 +44,8 @@
      </table>
     </td>
    </tr>
+   <tr id="doc2">
+   </tr>
    <tr id="footer">
     <td colspan="3" class="footer">
      <img src="/g1.gif" />
@@ -55,12 +57,23 @@
    </tr>
   </table>
   <script>
-   var tips = document.getElementById("tips");
+   function el(s) {return document.getElementById(s);}
+
+   var tips = el("tips");
    tips.ctx = tips.getContext("2d");
+
    function PCvMobile() {
     drawTipsCanvas();
     if(document.body.clientWidth < 600) {
+     el("doc2").appendChild(el("flc"));
+     if(el("doc").contains(el("flc")) {
+      el("doc").removeChild(el("flc"));
+     }
     } else {
+     el("doc").appendChild(el("flc"));
+     if(el("doc2").contains(el("flc")) {
+      el("doc2").removeChild(el("flc"));
+     }
     }
    }
 
