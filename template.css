@@ -5,6 +5,7 @@
   height:48px;
   background:url('/banner-bg.png') repeat;
 }
+
 /* Other Rules */
 .pg {margin:0px;overflow-x:hidden;}
 .guilds-list {min-width:90%;}
