@@ -1,0 +1,201 @@
+<html>
+ <head>
+  <title>E</title>
+ </head>
+ <body style="font-family:sans-serif">
+  <p><b>E</b> - by Tailz8003</p>
+  <canvas id="a" width=448 height=560></canvas>
+  <p>You have <b>100</b> total moves! To finish a level, all red tiles must be wiped off the map. Your aim is to clear all 3 levels before your 100 moves are up. This is a test of efficiency. In this seed (Tailz8003V), I have never finished with less than 4 red tiles remaining.</p>
+  <p><b>Controls: </b><br />Arrow keys to move (Costs 1 move each)</p>
+  <script>
+   var field=[228,232,228,68,192,74,72,42];
+   var headers = [228,232,228,68,192,74,72,42,170,32,78,72,68,170,64,74,72,138,170,32,74,238,228,68,192,92,200,72,192,71,114,7];
+   var pl={x:0,y:0,xp:0,ep:100};
+   var ctx = document.getElementById("a").getContext("2d");
+   var levels = 1;
+   // Sound Initialization
+   sfx = {
+    actx: new (window.AudioContext || window.webkitAudioContext)(),
+    queue: []
+   }
+   sfx.o = sfx.actx.createOscillator();
+   sfx.g = sfx.actx.createGain();
+   sfx.o.connect(sfx.g);
+   sfx.g.connect(sfx.actx.destination);
+   sfx.o.start();
+   sfx.play = function(...a) {
+    for(let i=0,n=a.length;i<n;i++) {
+      this.queue.push(a[i]);
+    }
+   }
+   sfx.init = function() {
+    this.clock = setInterval(function(b) {
+    let a = b.queue.shift();
+    if(typeof a !== "undefined") {
+      b.o.type="square";
+      b.o.frequency.setValueAtTime(440*Math.pow(2, a/12),b.actx.currentTime);
+      b.g.gain.setValueAtTime(0.4,b.actx.currentTime);
+    } else {
+      b.g.gain.setValueAtTime(0,b.actx.currentTime);
+    }
+    },50,this);
+   }
+   sfx.init();
+   sfx.play(0, 0, 0, -99, 2, 2, 2, -99, 3, 3, 3, -99, 4, 4, 4, -99, 5, 5, 5, -99, 6, 6, 6, -99, 7, 7, 7, -99, 9, 9, 9, -99, 10, 10, 10, -99, 12, 12, 12, -99, 13, 13, 13);
+   pl.moveUp=function() {
+    if(this.y<=0) {
+      sfx.play(4,9);
+    } else {
+      this.y--;
+      if(field[this.y] & (1 << this.x)) {
+        field[this.y] &= ~(1 << this.x);
+        sfx.play(2,0,2);
+      } else {
+        sfx.play(4);
+      }
+    }
+   };
+   pl.moveLeft=function() {
+    if(this.x<=0) {
+      sfx.play(4,9);
+    } else {
+      this.x--;
+      if(field[this.y] & (1 << this.x)) {
+        field[this.y] &= ~(1 << this.x);
+        sfx.play(2,0,2);
+      } else {
+        sfx.play(4);
+      }
+    }
+   };
+   pl.moveDown=function() {
+    if(this.y>=7) {
+      sfx.play(4,9);
+    } else {
+      this.y++;
+      if(field[this.y] & (1 << this.x)) {
+        field[this.y] &= ~(1 << this.x);
+        sfx.play(2,0,2);
+      } else {
+        sfx.play(4);
+      }
+    }
+   };
+   pl.moveRight=function() {
+    if(this.x>=7) {
+      sfx.play(4,9);
+    } else {
+      this.x++;
+      if(field[this.y] & (1 << this.x)) {
+        field[this.y] &= ~(1 << this.x);
+        sfx.play(2,0,2);
+      } else {
+        sfx.play(4);
+      }
+    }
+   };
+   
+   document.body.onkeydown=function(e) {
+    e.preventDefault();
+    let a=e.keyCode || e.which;
+    let b = 0;
+    if(pl.ep > 0) {
+      switch(a) {
+        case 37: pl.moveLeft(); pl.ep--; break;
+        case 38: pl.moveUp(); pl.ep--; break;
+        case 39: pl.moveRight(); pl.ep--; break;
+        case 40: pl.moveDown(); pl.ep--; break;
+      }
+      for(let i=0;i<8;i++) {
+        if(field[i] === 0) {
+        b++;
+        }
+      }
+      if(b === 8) {
+        levels++;
+        for(let i=0;i<8;i++) {
+          field[i] = headers[i+(levels*8)];
+        }
+      }
+    } else {
+      sfx.play(-12,-14);
+    }
+   }
+   
+   ctx.draw=function() {
+    ctx.scale(6,6);
+    ctx.beginPath();
+    ctx.fillStyle="black";
+    ctx.rect(0,0,64,24);
+    ctx.fill();
+    for(let i=0;i<levels;i++) {
+      ctx.beginPath();
+      ctx.fillStyle="blue";
+      ctx.rect(20+i*4,2,3,6);
+      ctx.fill();
+    }
+    if(pl.ep > 10) {
+      ctx.beginPath();
+      ctx.fillStyle="white";
+      ctx.rect(16,10,3,1);
+      ctx.rect(16,12,3,1);
+      ctx.rect(16,14,3,1);
+      ctx.rect(16,10,1,5);
+      ctx.fill();
+      for(var i=0;i<pl.ep/10;i++) {
+        ctx.beginPath();
+        ctx.fillStyle=i>1?"green":"red";
+        ctx.rect(20+i*4,10,3,5);
+        ctx.fill();
+      }
+    } else {
+      ctx.beginPath();
+      ctx.fillStyle="red";
+      ctx.rect(16,10,3,1);
+      ctx.rect(16,12,3,1);
+      ctx.rect(16,14,3,1);
+      ctx.rect(16,10,1,5);
+      ctx.fill();
+      for(var i=0;i<pl.ep;i++) {
+        ctx.beginPath();
+        ctx.fillStyle="red";
+        ctx.rect(20+i*4,10,3,5);
+        ctx.fill();
+      }
+    }
+    ctx.beginPath();
+    ctx.fillStyle="green";
+    ctx.rect(0,24,64,64);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.fillStyle="red";
+    for(var i=0;i<field.length;i++) {
+      for(var j=0;j<8;j++) {
+        if(field[i] & (1 << j)) {
+          ctx.rect(j*8,24+i*8,8,8);
+        }
+      }
+    }
+    ctx.fill();
+    ctx.beginPath();
+    ctx.fillStyle="white";
+    ctx.rect(2+pl.x*8,2+24+pl.y*8,4,4);
+    ctx.fill();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(1,1);
+    ctx.beginPath();
+    ctx.fillStyle="white";
+    for(var i=0;i<25;i++) {
+      for(var j=0;j<8;j++) {
+        if(headers[i] & (1 << 7-j)) {
+          ctx.rect(8+(j+(i%5)*8),8+Math.floor(i/5),1,1);
+        }
+      }
+    }
+    ctx.fill();
+    requestAnimationFrame(ctx.draw);
+   }
+   requestAnimationFrame(ctx.draw);
+  </script>
+ </body>
+</html>
