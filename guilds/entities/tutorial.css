@@ -1,0 +1,13 @@
+.tutorial {
+  max-width:20em;
+  border:1px solid black;
+  border-collapse: collapse;
+  font-family:sans-serif;
+}
+.tutorial .title {
+  background:#3B3;
+  color:#FFF;
+}
+.tutorial td {
+  border:1px solid black;
+}

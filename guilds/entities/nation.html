@@ -6,6 +6,7 @@
   <meta name="description" content="Nations are the largest unit of claiming as well as the main..." />
   <title>Welcome to Senre's Github page</title>
   <link rel="stylesheet" href="/template.css">
+  <link rel="stylesheet" href="tutorial.css">
  </head>
  <body class="pg">
   <div class="banner">
@@ -23,6 +24,19 @@
    <tr><td><a href="#hld">Holdings</a></td></tr>
    <tr><td><a href="#rec">Recruiting</a></td></tr>
    <tr><td><a href="#rnk">Ranks</a></td></tr>
+  </table>
+  <hr />
+  <table class="tutorial">
+   <tr><td class="title">Tutorial: Making a new nation</td></tr>
+   <tr>
+    <td style="height:9em;vertical-align:top;">
+     <b id="hdr"></b><br /><span id="txt"></span><br /><img id="ctx" height=200 hidden />
+    </td>
+   </tr>
+   <tr><td class="title">
+    <button onclick="tut(++step);">Next ></button><button onclick="tut(step=0);"><< Back</button>
+    [<span id="tcr"></span>/<span id="tmx"></span>]
+   </td></tr>
   </table>
   <hr />
   <h2 id="aon">Areas of Note</h2>
@@ -52,6 +66,40 @@
    <img src="/g4.gif" />
    <img src="/g5.gif" />
   </div>
+  <script>
+   var step = 0;
+   var tutorial = [
+    {
+     title: "Find your desired location",
+     desc: "Go around the map, look for places that are unclaimed that you want. Look through nations you planned to claim when you joined.",
+     img: null
+    },
+    {
+     title: "Type /n new <name>",
+     desc: "Make sure you stand in your first chunk. While you don't need to make your base first, it is still a good idea to do a small amount of work, just to see whether you want to stake claims here.",
+     img: null
+    },
+    {
+     title: "Type /n claim around your base",
+     desc: "But, make sure not to make a snake claim around it. Nations are made to expand as a solid blob, rather than as hollow tentacles.",
+     img: null
+    },
+    {
+     title: "Recruit players into your new country",
+     desc: "To invite people named ThePlayer, type /n add ThePlayer. Alternatively, if they applied, type also /n add ThePlayer to accept their application.",
+     img: null
+    },
+    {
+     title: "Give your new population a share of your country",
+     desc: "This can either take form of adding them into existing states and towns, or granting them new ones.",
+     img: null
+    }
+   ];
+   function o(e) {return document.getElementById(e);}
+   o("tmx").innerText = ""+tutorial.length;
+   function tut(i) {if(i >= tutorial.length) return;o("tcr").innerText=""+(step+1);o("hdr").innerText=tutorial[i].title;o("txt").innerText=tutorial[i].desc;if(tutorial[int].img != null) {o("img").src=tutorial[i].img;o("img").hidden=false;}else{o("img").hidden=true;}}
+   tut(0);
+  </script>
  </body>
 </html>
 
