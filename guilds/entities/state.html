@@ -6,6 +6,7 @@
   <meta name="description" content="States are divisions of a nation that are delegated to a local ruler..." />
   <title>Welcome to Senre's Github page</title>
   <link rel="stylesheet" href="/template.css">
+  <link rel="stylesheet" href="tutorial.css">
  </head>
  <body class="pg">
   <div class="banner">
@@ -16,11 +17,27 @@
   <div style="height:1em;"></div>
   <h1>States</h1>
   <p>States are divisions of a nation that are delegated to a local ruler. They are the country's provinces, districts, states, or prefectures.</p>
+  <hr />
   <ul>
    <li></li>
    <li></li>
    <li></li>
   </ul>
+  <hr />
+  <table class="tutorial">
+   <tr><td class="title">Tutorial: How to add a state</td></tr>
+   <tr>
+    <td style="height:9em;vertical-align:top;">
+     <b id="hdr"></b><br /><span id="txt"></span><br /><img id="ctx" height=200 hidden />
+    </td>
+   </tr>
+   <tr><td class="title">
+    <button onclick="tut(++step);">Next ></button><button onclick="tut(step=0);"><< Back</button>
+    [<span id="tcr"></span>/<span id="tmx"></span>]
+   </td></tr>
+  </table>
+  <hr />
+  <h2>Todo: Make this an actually complete entry.</h2>
   <div style="height:1em;"></div>
   <div class="footer">
    <img src="/g1.gif" />
@@ -29,6 +46,47 @@
    <img src="/g4.gif" />
    <img src="/g5.gif" />
   </div>
+<script>
+var step = 0;
+var tutorial = [
+  {
+    title: "Promote someone to officer",
+    desc: "The means to do so is \"/n appoint officer <player>\". Dialects of officer, such as general, or advisor also work.",
+    img: null
+  },
+  {
+    title: "Take the officer to desired chunk",
+    desc: "Make sure that the officer is at the chunk you want their state to start at. They must not be in the wilderness, or at an already established holding within the nation.",
+    img: null
+  },
+  {
+    title: "Type /n addstate <state> <player>",
+    desc: "If you are making the state of Sade lead by Senre, then you would type \"/n addstate Sade Senre\".",
+    img: null
+  },
+  {
+    title: "Integrate some territory",
+    desc: "States are typically meant to be reasonably big pieces of the nation. Thus you should give them plenty of land and breathing room. The goto command is \"/n integrate <state>.\"",
+    img: null
+  },
+];
+function o(e) {return document.getElementById(e);}
+
+o("tmx").innerText = ""+tutorial.length;
+function tut(i) {
+  if(i >= tutorial.length) {return;}
+  o("tcr").innerText=""+(step+1);
+  o("hdr").innerText=tutorial[i].title;
+  o("txt").innerText=tutorial[i].desc;
+  if(tutorial[int].img != null) {
+    o("img").src=tutorial[i].img;
+    o("img").hidden=false;
+  } else {
+    o("img").hidden=true;
+  }
+}
+tut(0);
+</script>
  </body>
 </html>
 
