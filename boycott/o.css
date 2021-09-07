@@ -1,0 +1,22 @@
+body {
+  font-family: sans-serif;
+  background: url("bg.png") fixed;
+  background-size: cover;
+  color: #07E;
+}
+
+h1 {
+  text-align: center;
+}
+
+.top {
+  margin: 2em;
+}
+.aesthetic {
+  padding: 0.5em;
+  background: black;
+  border: 4px ridge #07E;
+}
+
+.l {float: left;}
+.r {float: right;}
