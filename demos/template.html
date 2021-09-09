@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Welcome to Senre's Github page</title>
+  <link rel="stylesheet" href="https://senre-mc.github.io/template.css" />
+  <link rel="stylesheet" href="https://senre-mc.github.io/mainpage.css" />
+ </head>
+ <body class="pg">
+  <div class="banner">
+   <img src="https://senre-mc.github.io/sample-logo.png" class="label" />
+   <a href="https://senre-mc.github.io/guilds/"><img src="https://senre-mc.github.io/guilds-bg.png" class="label" /></a>
+   <a href="https://senre-mc.github.io/demos/"><img src="https://senre-mc.github.io/demo-bg.png" class="label" /></a>
+  </div>
+  <div style="height:1em;"></div>
+  <table class="page">
+   <tr id="top">
+    <td style="text-align:center;">
+     <canvas id="game" width=300 height=400 onclick="game_onClick(event)">Sorry, this is not flash, it's HTML5</canvas>
+    </td>
+    <td id="fluc1">
+     <p>This is not a flash game, it is made entirely in HTML5</p>
+     <p><b>Controls:</b></p>
+    </td>
+   </tr>
+   <tr id="top2"></tr>
+   <tr id="footer">
+    <td colspan="3" class="footer">
+     <img src="https://senre-mc.github.io/g1.gif" />
+     <a href="https://senre-mc.github.io/boycott/"><img src="https://senre-mc.github.io/g2.gif" /></a>
+     <img src="https://senre-mc.github.io/g3.gif" />
+     <img src="https://senre-mc.github.io/g4.gif" />
+     <img src="https://senre-mc.github.io/g5.gif" />
+    </td>
+   </tr>
+  </table>
+  <script src="types.js"></script>
+  <script src="testGame.js"></script>
+  <script>
+   function el(s) {return document.getElementById(s);}
+
+   function PCvMobile() {
+    if(document.body.clientWidth < 600) {
+     el("top2").appendChild(el("fluc1"));
+     if(el("top").contains(el("fluc1"))) {
+      el("top").removeChild(el("fluc1"));
+     }
+    } else {
+     el("top").appendChild(el("fluc1"));
+     if(el("top2").contains(el("fluc1"))) {
+      el("top2").removeChild(el("fluc1"));
+     }
+    }
+   }
+
+   document.body.onresize = function() {
+    PCvMobile();
+   }
+
+   PCvMobile();
+  </script>
+ </body>
+</html>
+

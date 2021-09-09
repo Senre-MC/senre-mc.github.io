@@ -4,9 +4,8 @@
  </head>
  <body style="font-family:sans-serif">
   <p><b>E</b> - by Tailz8003</p>
-  <canvas id="a" width=448 height=560></canvas>
-  <p>You have <b>100</b> total moves! To finish a level, all red tiles must be wiped off the map. Your aim is to clear all 3 levels before your 100 moves are up. This is a test of efficiency. In this seed (Tailz8003V), I have never finished with less than 4 red tiles remaining.</p>
-  <p><b>Controls: </b><br />Arrow keys to move (Costs 1 move each)</p>
+  <canvas id="a" width=384 height=524 style="position:absolute;left:min(50vw, calc(100vw - 384px));"></canvas>
+  <div style="position:absolute;width:50vw;">You have <b>100</b> total moves! To finish a level, all red tiles must be wiped off the map. Your aim is to clear all 3 levels before your 100 moves are up. This is a test of efficiency. In this seed (Tailz8003V), I have never finished with less than 4 red tiles remaining.<br /><br />Controls:<br />Arrow Keys: Move player token</div>
   <script>
    var field=[228,232,228,68,192,74,72,42];
    var headers = [228,232,228,68,192,74,72,42,170,32,78,72,68,170,64,74,72,138,170,32,74,238,228,68,192,92,200,72,192,71,114,7];
@@ -41,7 +40,7 @@
     },50,this);
    }
    sfx.init();
-   sfx.play(0, 0, 0, -99, 2, 2, 2, -99, 3, 3, 3, -99, 4, 4, 4, -99, 5, 5, 5, -99, 6, 6, 6, -99, 7, 7, 7, -99, 9, 9, 9, -99, 10, 10, 10, -99, 12, 12, 12, -99, 13, 13, 13);
+   sfx.play(4, 4, -99, 4, 4, -99, -99, -99, -99, 4, 4, -99, 7, 7, -99, 7, 7, -99, -99, -99, 7, 7, -99, 9, 9, -99, 7, 7, -99, 4, 4, -99, 2, 2, -99, 4, 4);
    pl.moveUp=function() {
     if(this.y<=0) {
       sfx.play(4,9);
