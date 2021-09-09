@@ -7,7 +7,7 @@ var ctx = game.getContext("2d");
 ctx.fillStyle="black";
 ctx.fillRect(0, 0, game.width, game.height);
 
-if(viewer == Viewer.MOBILE) {
+if(deviceTester() == Viewer.MOBILE) {
   ctx.fillStyle="white";
   ctx.font = "24px serif";
   ctx.fontBaseline = "top";
