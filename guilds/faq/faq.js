@@ -11,11 +11,12 @@ var faqs = [
 function onSearch({data}) {
   var p = 0;
   for(var i=0;i<faqs.length;i++) {
-    if(p < 3) {
-      document.getElementById("s"+p).innerText = faqs[i].q;
-      document.getElementById("s"+p).result = faqs[i];
-      p++;
-    }
+    if(faqs[i].q.includes(data))
+      if(p <= 3) {
+        document.getElementById("s"+p).innerText = faqs[i].q;
+        document.getElementById("s"+p).result = faqs[i];
+        p++;
+      }
   }
 };
 
