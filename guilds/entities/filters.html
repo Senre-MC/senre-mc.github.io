@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="description" content="Command filters are consistent across every command that is part of the guilds plugin's engine..." />
+  <title>Filters Entry</title>
+  <link rel="stylesheet" href="/template.css">
+  <link rel="stylesheet" href="tutorial.css">
+ </head>
+ <body class="pg">
+  <div class="banner">
+   <img src="/sample-logo.png" class="label" />
+   <a href="/guilds/"><img src="/guilds-bg.png" class="label" /></a>
+   <a href="/demos/"><img src="/demo-bg.png" class="label" /></a>
+  </div>
+  <div style="height:1em;"></div>
+  <h1>Command Filters</h1>
+  <p>Command filters are consistent across every command that is part of the guilds plugin's engine. Exceptions are the /guilds command itself. Whenever the help screen pops up, or whenever the suggestions tab previews the command, it will show all of the filters in a <code>&lt;filter&gt;</code> syntax.</p>
+  <hr />
+  <h3>Table of Contents</h3>
+  <ul>
+   <li><a href="#INTEGER">Numerical &lt;#&gt;</a></li>
+   <li><a href="#STRING">Wildcard &lt;name&gt;</a></li>
+   <li><a href="#GPOP">Input &lt;player&gt;</a></li>
+   <li><a href="#NPOP">Input &lt;nplayer&gt;</a></li>
+   <li><a href="#SPOP">Input &lt;splayer&gt;</a></li>
+   <li><a href="#TPOP">Input &lt;townsman&gt;</a></li>
+   <li><a href="#COLOR">Trait &lt;color&gt;</a></li>
+   <li><a href="#TITLE">Rank &lt;title&gt;</a></li>
+   <li><a href="#NATION">Holding &lt;nation&gt;</a></li>
+   <li><a href="#STATE">Holding &lt;state&gt;</a></li>
+   <li><a href="#TOWN">Holding &lt;town&gt;</a></li>
+   <li><a href="#SIGNATURE">Guild &lt;signature&gt;</a></li>
+  </ul>
+  <hr />
+  <h2 id="INTEGER">Numerical &lt;#&gt;</h2>
+  <p>
+   <b class="fver">[1.0.0]</b>
+   <span class="ftype">This filter represents whole numbers.</span>
+   <span class="fusage">Any number positive or negative can be typed in.</span>
+   <span class="fnotice">This does not autocomplete in a command.</span>
+  </p>
+  <hr />
+  <h2 id="STRING">Wildcard &lt;name&gt;</h2>
+  <p>
+   <b class="fver">[1.0.0]</b>
+   <span class="ftype">This filter takes in any input so long as there are no spaces.</span>
+   <span class="fusage">This is a generic prompt that is usually used for searching or setting names.</span>
+   <span class="fnotice">This does not autocomplete in a command.</span>
+  </p>
+  <hr />
+  <h2 id="GPOP">Input &lt;player&gt;</h2>
+  <p>
+   <b class="fver">[1.0.0]</b>
+   <span class="ftype">This filter represents every player that has joined the server.</span>
+   <span class="fusage">Most player prompts use this filter unless for specific reasons.</span>
+   <span class="fnotice">This will autocomplete by finding every single player ever (if under 40 players).</span>
+  </p>
+  <hr />
+  <h2 id="NPOP">Input &lt;nplayer&gt;</h2>
+  <p>
+   <b class="fver">[1.0.0]</b>
+   <span class="ftype">This filter represents every player that is part of your nation.</span>
+   <span class="fusage">This includes people in states and towns that are also in the nation.</span>
+   <span class="fnotice">You will need to be part of a nation to use any commands that have this filter.</span>
+  </p>
+  <hr />
+  <h2 id="SPOP">Input &lt;splayer&gt;</h2>
+  <p>
+   <b class="fver">[1.0.0]</b>
+   <span class="ftype">This filter represents every player that is part of your state.</span>
+   <span class="fusage">This includes people in other towns.</span>
+   <span class="fnotice">You will need to be part of a state to use any commands that have this filter.</span>
+  </p>
+  <hr />
+  <h2 id="TPOP">Input &lt;townsman&gt;</h2>
+  <p>
+   <b class="fver">[1.0.0]</b>
+   <span class="ftype">This filter represents every player that is part of your town.</span>
+   <span class="fusage">This includes people in states and towns that are also in the nation.</span>
+   <span class="fnotice">You will need to be part of a town to use any commands that have this filter.</span>
+  </p>
+  <hr />
+  <h2 id="COLOR">Trait &lt;color&gt;</h2>
+  <p>
+   <b class="fver">[1.0.0]</b>
+   <span class="ftype">This filter involves colors.</span>
+   <span class="fusage">You can use primary colors, or HTML colors. To get a HTML color, refer either to your nearest image editor, or use this: <input type="color" id="myColor" /></span>
+   <span class="fnotice">Some servers may make /n color a paid feature.</span>
+  </p>
+  <hr />
+  <h2 id="COLOR">Trait &lt;title&gt;</h2>
+  <p>
+   <b class="fver">[1.0.0]</b>
+   <span class="ftype">This filter involves ranks, or specifically rank titles.</span>
+   <span class="fusage">Titles are uniform across nations, states, and towns.</span>
+   <span class="fnotice">The autofiller is good at presenting each title if you do not know all of them.</span>
+  </p>
+  <hr />
+  <h2 id="NATION">Holding &lt;nation&gt;</h2>
+  <p>
+   <b class="fver">[1.0.0]</b>
+   <span class="ftype">This filter involves all nations that are listed.</span>
+   <span class="fusage">Any type of nation will work.</span>
+   <span class="fnotice">However, Safezone is not considered a listed nation.</span>
+  </p>
+  <hr />
+  <h2 id="STATE">Holding &lt;state&gt;</h2>
+  <p>
+   <b class="fver">[1.0.0]</b>
+   <span class="ftype">This filter involves all states, independent or under a nation.</span>
+   <span class="fusage">If you are looking up California, you may use <code>California</code>, or to further clarify, you may use <code>California,USA</code>.</span>
+   <span class="fnotice">This does not autofill in a command, take note that you must not use a space. <code>California, USA</code> will not work.</span>
+  </p>
+  <hr />
+  <h2 id="TOWN">Holding &lt;Town&gt;</h2>
+  <p>
+   <b class="fver">[1.0.0]</b>
+   <span class="ftype">This filter involves all towns on the server.</span>
+   <span class="fusage">If you are looking up LosAngeles, you may use <code>LosAngeles</code>, or if there's multiple towns of that name, you may use <code>LosAngeles,USA</code> or <code>LosAngeles,California,USA</code>.</span>
+   <span class="fnotice">This does not autofill in a command, take note that you must not use a space. <code>Los Angeles, California, USA</code> will not work.</span>
+  </p>
+  <hr />
+  <h2 id="SIGNATURE">Guild &lt;signature&gt;</h2>
+  <p>
+   <b class="fver">[1.0.0]</b>
+   <span class="ftype">This filter involves signed war declarations.</span>
+   <span class="fusage">You will need to use the signature's UID.</span>
+   <span class="fnotice">Currently the war system is not in use.</span>
+  </p>
+  <div style="height:1em;"></div>
+  <div class="footer">
+   <img src="/g1.gif" />
+   <img src="/g2.gif" />
+   <img src="/g3.gif" />
+   <img src="/g4.gif" />
+   <img src="/g5.gif" />
+  </div>
+<script>
+var step = 0;
+var tutorial = [
+  {
+    title: "Establish the location to settle",
+    desc: "Look around for a location that looks ripe to build your town. It could be flat, rugged, mountainous, it depends only on how you are able to utilize your terrain.",
+    img: null
+  },
+  {
+    title: "Type [/n|/s] addtown <town> <player>",
+    desc: "If you are a nation leader, or a state governor, and you want to grant jurisdiction to a town, you would need to type this command, but if you're not...",
+    img: null
+  },
+  {
+    title: "Alternatively, have them /t found <town>",
+    desc: "If you are the soon-to-be mayor yourself, then you would type this command instead.",
+    img: null
+  },
+  {
+    title: "Use /t claim whenever you need to expand",
+    desc: "Your new town is essentially a base now. Whenever you need more room, type /t claim. Be weary of claim capacity however.",
+    img: null
+  }
+];
+function o(e) {return document.getElementById(e);}
+
+o("tmx").innerText = ""+tutorial.length;
+function tut(i) {
+  if(i >= tutorial.length) {return;}
+  o("tcr").innerText=""+(step+1);
+  o("hdr").innerText=tutorial[i].title;
+  o("txt").innerText=tutorial[i].desc;
+  if(tutorial[int].img != null) {
+    o("img").src=tutorial[i].img;
+    o("img").hidden=false;
+  } else {
+    o("img").hidden=true;
+  }
+}
+tut(0);
+</script>
+ </body>
+</html>
+

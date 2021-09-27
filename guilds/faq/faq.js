@@ -4,7 +4,7 @@ var faqs = [
   {q:"How do I make a state?", a:"The solution is a bit misleading, but what you need to do is promote a player in your nation through /n appoint official <Player123_>. Once promoted, have the player stand in the desired chunk to start forming a state, and then type /n addstate <YourStateName> <player>."},
   {q:"What are states?", a:"A state is a subdivision of your nation. After a while of building a nation, you may want to delegate people to different parts of it. This is where a state comes in. A state can own towns just like a nation."},
   {q:"How do I report bugs?", a:"You may do so at https://github.com/Senre-MC/senre-mc.github.io/issues"},
-  {q:"", a:""},
+  {q:"What is mandate?", a:"If you are familiar with Factions, mandate is basically faction power. If you are not familiar with Factions, mandate is your"},
   {q:"", a:""}
 ];
 
@@ -17,6 +17,10 @@ function onSearch({data}) {
         document.getElementById("s"+p).result = faqs[i];
         p++;
       }
+  }
+  while(p <= 3) {
+    document.getElementById("s"+p).innerText = "";
+    document.getElementById("s"+p).result = undefined;
   }
 };
 
